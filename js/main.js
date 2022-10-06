@@ -2,9 +2,9 @@
 
 /////win conditions + checkWin function/////
 let boardState = [
-    'x','x','o',
-    'x','x','x',
-    'x','o','x',
+    '','','',
+    '','','',
+    '','','',
 ];
 
 let winConditions = [
