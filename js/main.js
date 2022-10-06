@@ -41,7 +41,8 @@ for (let i = 0; i < winConditions.length; i++){
         && boardState[line[0]] == boardState[line[1]] 
         && boardState[line[1]] == boardState[line[2]]) 
         {console.log('WIN'), alert('you won!');
-    } else (console.log("LOSE")) 
+    } else (console.log("LOSE"));
+     
 }
 }
 
