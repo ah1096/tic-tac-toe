@@ -65,6 +65,9 @@ function changeTurn() {
     // Detect current turn count, add one
     turncount++;
     console.log(turncount);
+    if (turncount >= 5) {
+        checkWin();
+    }
 }
 
 function makeMove(location, letter) {
