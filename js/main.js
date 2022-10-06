@@ -1,6 +1,6 @@
 
 
-//win conditions
+/////win conditions + checkWin function/////
 let boardState = [
     'x','x','o',
     'x','x','x',
@@ -25,7 +25,7 @@ let winConditions = [
 
 ]
 
-
+function checkWin() {
 for (let i = 0; i < winConditions.length; i++){
     const line = winConditions[i];
 
@@ -40,32 +40,28 @@ for (let i = 0; i < winConditions.length; i++){
         && boardState[line[0]] == boardState[line[1]] 
         && boardState[line[1]] == boardState[line[2]]) 
         {console.log('WIN');
-    } else if (
-        boardState[line[3]] 
-        && boardState[line[3]] == boardState[line[4]] 
-        && boardState[line[4]] == boardState[line[5]]) 
-        {console.log('WIN');
-    } else if (
-        boardState[line[6]] 
-        && boardState[line[6]] == boardState[line[7]] 
-        && boardState[line[7]] == boardState[line[8]]) 
-        {console.log('WIN');
-    } 
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    else (console.log("LOSE"))
-    
-    
-    
-    
-    
+    } else (console.log("LOSE")) 
+}
 }
 
+checkWin();
 
+///////////////////////////////////////////
+
+function resetBoard() {
+    boardState = [
+        '','','',
+        '','','',
+        '','','',
+    ];
+}
+
+resetBoard();
+console.log(boardState);
+
+function makeMove(location, letter) {
+    boardState.splice(location, 1, letter);
+}
+
+makeMove(0, 'X');
+console.log(boardState);
