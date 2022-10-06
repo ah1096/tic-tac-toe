@@ -1,7 +1,6 @@
 
 let turncount = 0
 
-/////win conditions + checkWin function/////
 let boardState = [
     '','','',
     '','','',
@@ -26,7 +25,7 @@ let winConditions = [
 
 ]
 
-function checkWin() { /////working, but how???????????????????????????
+/*✅*/ function checkWin() { /////working, but how???????????????????????????
 for (let i = 0; i < winConditions.length; i++){
     const line = winConditions[i];
 
@@ -43,17 +42,23 @@ for (let i = 0; i < winConditions.length; i++){
     {console.log('WIN');
         if (turncount %2 == 0) 
         {alert("O wins!")} 
-        else {alert("X wins!")}
-    } else (console.log("LOSE"));
-     
+        else {alert("X wins!")
+        //✨FRONT END:　update page to have restart button
+    }
+    } else if (boardState[line[0]] 
+            && boardState[line[0]] !== boardState[line[1]] 
+            && boardState[line[1]] !== boardState[line[2]])
+        {console.log("LOSE")
+    } else {console.log("DRAW");
+            alert("It's a tie! aka a cat game");
+            //✨FRONT END: update page to cat game/restart button
+        }
+    
+  
 }
 }
 
-checkWin();
-
-///////////////////////////////////////////
-
-function resetBoard() {
+/*✅*/ function resetBoard() {
     boardState = [
         '','','',
         '','','',
@@ -65,16 +70,21 @@ function resetBoard() {
 
 resetBoard();
 
-function changeTurn() {
+/*✅*/ function changeTurn() {
     // Detect current turn count, add one
     turncount++;
     console.log(turncount);
+
+                    ///✨FRONT-END: change playername display 
+                    //if (turncount % 2 == 0) {change H1 to "It's O's turn}
+                    //      else {change H1 to "It's X's turn"}
+
     if (turncount >= 5) {
         checkWin();
     }
 }
 
-function makeMove(location, letter) {
+/*✅*/ function makeMove(location, letter) {
     if (boardState[location] === '')
     {boardState.splice(location, 1, letter);
     console.log(boardState);
