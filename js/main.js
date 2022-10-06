@@ -1,4 +1,5 @@
 
+let turncount = 0
 
 /////win conditions + checkWin function/////
 let boardState = [
@@ -60,8 +61,19 @@ function resetBoard() {
 
 resetBoard();
 
-function makeMove(location, letter) {
-    boardState.splice(location, 1, letter);
-    console.log(boardState);
+function changeTurn() {
+    // Detect current turn count, add one
+    turncount++;
+    console.log(turncount);
 }
+
+function makeMove(location, letter) {
+    if (boardState[location] === '')
+    {boardState.splice(location, 1, letter);
+    console.log(boardState);
+    changeTurn();}
+    else {console.log("stop that")
+    }; 
+}
+
 
