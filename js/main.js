@@ -49,9 +49,12 @@ for (let i = 0; i < winConditions.length; i++){
             && boardState[line[0]] !== boardState[line[1]] 
             && boardState[line[1]] !== boardState[line[2]])
         {console.log("LOSE")
-    } else {console.log("DRAW");
+    } else {
+        if (turncount == 9) {
+        console.log("DRAW");
             alert("It's a tie! aka a cat game");
             //✨FRONT END: update page to cat game/restart button
+        }
         }
     
   
