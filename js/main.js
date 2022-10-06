@@ -25,7 +25,7 @@ let winConditions = [
 
 ]
 
-function checkWin() {
+function checkWin() { /////working, but how???????????????????????????
 for (let i = 0; i < winConditions.length; i++){
     const line = winConditions[i];
 
@@ -54,14 +54,14 @@ function resetBoard() {
         '','','',
         '','','',
     ];
+
+    console.log(boardState);
 }
 
 resetBoard();
-console.log(boardState);
 
 function makeMove(location, letter) {
     boardState.splice(location, 1, letter);
+    console.log(boardState);
 }
 
-makeMove(0, 'X');
-console.log(boardState);
