@@ -15,11 +15,21 @@ const app = document.getElementById('app');
    console.log(element);
 }
 
-/*🛑*/function drawPage () {
+/*✅*/function drawPage () {
     createElement(app, 'bigMama', 'container-fluid text-center my-4 vh-80', 'div', null, null, null, null, null);
        createElement(bigMama, 'headertext', null, 'h1', 'TIC TAC TOE', null, null, null, null);
         
-       createElement(bigMama, 'firstRow', 'row', 'div', null, null, null,null,null);
+       createElement(bigMama, 'bottomText', null, 'h2', 'press to play', null, null, null, null);
+
+        createElement(bigMama, 'button', 'border rounded-3', 'button', 'start', null, null, null, null);
+
+       }
+
+drawPage();
+
+/*✅*/function drawBoard() {
+
+    createElement(bigMama, 'firstRow', 'row', 'div', null, null, null,null,null);
            createElement(firstRow, 'tile0', 'col ratio ratio-1x1 border-top-0 border-start-0', 'div', 'x', null, null, null, null, null);
            createElement(firstRow, 'tile1', 'col ratio ratio-1x1 border-top-0', 'div', 'x', null, null, null, null, null);
             createElement(firstRow, 'tile2', 'col ratio ratio-1x1 border-top-0 border-end-0', 'div', 'x', null, null, null, null, null);
@@ -34,14 +44,16 @@ const app = document.getElementById('app');
            createElement(thirdRow, 'tile7', 'col ratio ratio-1x1 border-bottom-0', 'div', 'x', null, null, null, null, null);
            createElement(thirdRow, 'tile8', 'col ratio ratio-1x1 border-end-0 border-bottom-0', 'div', 'x', null, null, null, null, null);
 
-       createElement(bigMama, 'bottomText', null, 'h2', 'press to play', null, null, null, null);
+        //get rid of weirdly spaced button and h2 vvv
 
-        createElement(bigMama, 'button', 'border rounded-3', 'button', 'start', null, null, null, null);
+           const element = document.getElementById('button');
+           element.remove();
 
-       }
+           const element2 = document.getElementById('bottomText');
+           element2.remove();
 
-drawPage();
-
+    createElement(bigMama, 'bottomText2', null, 'h2', 'press to play', null, null, null, null);
+}
 
 let turncount = 0
 
@@ -114,6 +126,12 @@ for (let i = 0; i < winConditions.length; i++){
 
 resetBoard();
 
+function whoseTurn() { /*?????????????????????????????????????*/
+    if (turncount % 2 == 0 && turncount > 0) {
+        bottomText2.innerText = "it's O's turn";
+    } else {bottomText2.innerText = "it's X's turn"}
+}
+
 /*✅*/ function changeTurn() {
     // Detect current turn count, add one
     turncount++;
@@ -125,7 +143,8 @@ resetBoard();
 
     if (turncount >= 5) {
         checkWin();
-    }
+    };
+
 }
 
 /*✅*/ function makeMove(location, letter) {
@@ -135,22 +154,16 @@ resetBoard();
     changeTurn();}
     else {console.log("stop that")
     }; 
+
 }
 
 
-var headerText = document.getElementById("headerText");
-var bottomText = document.getElementById("bottomText");
-var button = document.getElementById("button");
 
 
-/*✅*/ function whoseTurn() { 
-    if (turncount !== 0 && turncount % 2 == 0) {
-        headerText.innerHTML = "IT'S O'S TURN";
-        bottomText.innerText = "make a move";
-    } 
-    if (turncount == 0 || turncount % 2 !== 0) {
-        headerText.innerHTML = "IT'S X'S TURN";
-        bottomText.innerText = "make a move";
-    }
-}
+
+
+button.addEventListener('click', drawBoard);
+
+
+
 
